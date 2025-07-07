@@ -1,6 +1,5 @@
 ﻿using GonzalezFabioExamen3P.Services;
-using Microsoft.Extensions.Logging;
-
+using CommunityToolkit.Maui; 
 namespace GonzalezFabioExamen3P
 {
     public static class MauiProgram
