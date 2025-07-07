@@ -7,17 +7,14 @@ namespace GonzalezFabioExamen3P
         public static MauiApp CreateMauiApp()
         {
             var builder = MauiApp.CreateBuilder();
+
+            var dbPath = Path.Combine(FileSystem.AppDataDirectory, "contactos.db3");
+            builder.Services.AddSingleton(new DatabaseService(dbPath));
+            builder.Services.AddSingleton<LogService>();
+
             builder
                 .UseMauiApp<App>()
-                .ConfigureFonts(fonts =>
-                {
-                    fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
-                    fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
-                });
-
-#if DEBUG
-    		builder.Logging.AddDebug();
-#endif
+                .UseMauiCommunityToolkit();
 
             return builder.Build();
         }

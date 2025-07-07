@@ -1,12 +1,18 @@
-﻿namespace GonzalezFabioExamen3P
+﻿using GonzalezFabioExamen3P.Services;
+using GonzalezFabioExamen3P.ViewModels;
+using GonzalezFabioExamen3P.Views;
+
+namespace GonzalezFabioExamen3P
 {
     public partial class App : Application
     {
-        public App()
+        public App(DatabaseService dbService, LogService logService)
         {
             InitializeComponent();
 
-            MainPage = new AppShell();
+            var viewModel = new NuevoContactoViewModel(dbService, logService);
+
+            MainPage = new NavigationPage(new NuevoContacto(viewModel));
         }
     }
 }

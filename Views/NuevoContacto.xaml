@@ -1,12 +1,13 @@
-<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="GonzalezFabioExamen3P.Views.NuevoContacto"
-             Title="NuevoContacto">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:viewmodels="clr-namespace:GonzalezFabioExamen3P.ViewModels"
+             x:Class="GonzalezFabioExamen3P.Views.NuevoContacto">
+
+    <StackLayout Padding="20">
+        <Entry Placeholder="Nombre" Text="{Binding Nombre}" />
+        <Entry Placeholder="Correo" Text="{Binding Correo}" />
+        <Entry Placeholder="Teléfono" Text="{Binding Telefono}" />
+        <Switch IsToggled="{Binding Favorito}" />
+        <Button Text="Guardar" Command="{Binding GuardarCommand}" />
+    </StackLayout>
 </ContentPage>

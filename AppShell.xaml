@@ -1,15 +1,29 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<Shell
-    x:Class="GonzalezFabioExamen3P.AppShell"
-    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:local="clr-namespace:GonzalezFabioExamen3P"
-    Shell.FlyoutBehavior="Disabled"
-    Title="GonzalezFabioExamen3P">
+<?xml version="1.0" encoding="utf-8" ?>
+<Shell xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+       xmlns:viewmodels="clr-namespace:GonzalezFabioExamen3P.ViewModels"
+       xmlns:views="clr-namespace:GonzalezFabioExamen3P.Views"
+       x:Class="GonzalezFabioExamen3P.AppShell">
 
-    <ShellContent
-        Title="Home"
-        ContentTemplate="{DataTemplate local:MainPage}"
-        Route="MainPage" />
+    <Shell.FlyoutHeader>
+        <StackLayout Padding="10">
+            <Label Text="Bienvenido" FontSize="24" />
+            <Label Text="Aplicación de Contactos" />
+        </StackLayout>
+    </Shell.FlyoutHeader>
+
+    <TabBar>
+        <ShellContent Title="Lista de Contactos" Icon="icon_contacts.png">
+            <views:ListaContacto />
+        </ShellContent>
+
+        <ShellContent Title="Nuevo Contacto" Icon="icon_add_contact.png">
+            <views:NuevoContacto />
+        </ShellContent>
+
+        <ShellContent Title="Logs" Icon="icon_logs.png">
+            <views:Logs />
+        </ShellContent>
+    </TabBar>
 
 </Shell>

@@ -1,9 +1,13 @@
-namespace GonzalezFabioExamen3P.Views;
+using GonzalezFabioExamen3P.ViewModels;
 
-public partial class NuevoContacto : ContentPage
+namespace GonzalezFabioExamen3P.Views
 {
-	public NuevoContacto()
-	{
-		InitializeComponent();
-	}
+    public partial class NuevoContacto : ContentPage
+    {
+        public NuevoContacto(NuevoContactoViewModel viewModel)
+        {
+            InitializeComponent();
+            BindingContext = viewModel;  // Asignamos el ViewModel al BindingContext
+        }
+    }
 }

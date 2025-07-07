@@ -1,9 +1,25 @@
-namespace GonzalezFabioExamen3P.Views;
+using CommunityToolkit.Mvvm.ComponentModel;
+using GonzalezFabioExamen3P.Models;
+using GonzalezFabioExamen3P.Services;
 
-public partial class ListaContacto : ContentPage
+namespace GonzalezFabioExamen3P.ViewModels
 {
-	public ListaContacto()
-	{
-		InitializeComponent();
-	}
+    public partial class ListaContactosViewModel : ObservableObject
+    {
+        [ObservableProperty]
+        List<Contacto> contactos;
+
+        private readonly DatabaseService dbService;
+
+        public ListaContactosViewModel(DatabaseService db)
+        {
+            dbService = db;
+            LoadData();
+        }
+
+        async void LoadData()
+        {
+            Contactos = await dbService.GetContactos();
+        }
+    }
 }

@@ -1,12 +1,23 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="GonzalezFabioExamen3P.Views.ListaContacto"
-             Title="ListaContacto">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+             xmlns:viewmodels="clr-namespace:GonzalezFabioExamen3P.ViewModels"
+             Title="Contactoss">
+    
+    <ContentPage.BindingContext>
+      <viewmodels:ListaContactoViewModel />
+    </ContentPage.BindingContext>
+
+    <CollectionView ItemsSource="{Binding Contactos}">
+        <CollectionView.ItemTemplate>
+            <DataTemplate>
+                <VerticalStackLayout Padding="10">
+                    <Label Text="{Binding Nombre}" FontAttributes="Bold" />
+                    <Label Text="{Binding Correo}" />
+                    <Label Text="{Binding Telefono}" />
+                    <Label Text="{Binding Favorito}" />
+                </VerticalStackLayout>
+            </DataTemplate>
+        </CollectionView.ItemTemplate>
+    </CollectionView>
 </ContentPage>
