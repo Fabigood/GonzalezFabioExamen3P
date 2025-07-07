@@ -14,7 +14,7 @@
 
     <TabBar>
         <ShellContent Title="Lista de Contactos" Icon="icon_contacts.png">
-            <views:ListaContacto />
+            <views: />
         </ShellContent>
 
         <ShellContent Title="Nuevo Contacto" Icon="icon_add_contact.png">

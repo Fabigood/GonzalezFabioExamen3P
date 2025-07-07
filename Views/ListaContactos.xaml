@@ -5,7 +5,7 @@
              Title="Contactoss">
     
     <ContentPage.BindingContext>
-      <viewmodels:ListaContactoViewModel />
+      <viewmodels:ListaContactosViewModel />
     </ContentPage.BindingContext>
 
     <CollectionView ItemsSource="{Binding Contactos}">
